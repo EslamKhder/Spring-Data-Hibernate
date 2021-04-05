@@ -20,7 +20,6 @@ public class MainApp {
 		
 		Session session = factory.getCurrentSession();
 		
-		
 	}
 
 }
