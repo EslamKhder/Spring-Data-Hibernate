@@ -21,6 +21,8 @@ public class Client {
 	
 	@Column(name = "client_address")
 	private String address;
+	
+	
 
 	public Long getId() {
 		return id;

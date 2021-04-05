@@ -20,6 +20,25 @@ public class MainApp {
 		
 		Session session = factory.getCurrentSession();
 		
+		Client client = new Client();
+		client.setId((long) 1);
+		client.setFullName("Eslam Khder");
+		client.setAge(20);
+		client.setAddress("eslamKhder81@gmail,com");
+		
+		try {
+			session.beginTransaction();
+			
+			session.save(client);
+			
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.toString());
+		} finally {
+			session.close();
+		}
+		
 	}
 
 }
