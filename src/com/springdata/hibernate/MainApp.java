@@ -20,16 +20,24 @@ public class MainApp {
 		
 		Session session = factory.getCurrentSession();
 		
-		Client client = new Client();
-		client.setId((long) 1);
-		client.setFullName("Eslam Khder");
-		client.setAge(20);
-		client.setAddress("eslamKhder81@gmail,com");
+		// client one
+		Client client1 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
+		//client1.setId((long)1);
+		
+		// client one
+		Client client2 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
+		//client2.setId((long)2);
+		
+		// client one
+		Client client3 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
+		//client3.setId((long)3);
 		
 		try {
 			session.beginTransaction();
 			
-			session.save(client);
+			session.save(client1);
+			session.save(client2);
+			session.save(client3);
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
