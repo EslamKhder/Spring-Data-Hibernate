@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -29,16 +30,21 @@ public class MainApp {
 		 * 
 		 * */
 		
-		long id = 1;
+		int id = 1;
 		try {
 			session.beginTransaction();
 			//List<Client> clients = 
-					session
-					.createQuery("delete from Client where fullName = 'kmal'")
-					.executeUpdate();
-			/*for(int i=0;i<clients.size();i++) {
+			Query q = session
+					.createQuery("from Client where id =:v1 or fullName =:v2");
+			//q.setFirstResult(0);  //  0 1 2 3 
+			//q.setMaxResults(4);
+			q.setInteger("v1", id);
+			q.setString("v2", "karim");
+			List<Client> clients = q.list();
+					//.list();
+			for(int i=0;i<clients.size();i++) {
 				System.out.println(clients.get(i).getFullName() + " " + clients.get(i).getAge());
-			}*/
+			}
 			
 			//System.out.println(c.getFullName() + " " + c.getAddress());
 		} catch (Exception e) {
