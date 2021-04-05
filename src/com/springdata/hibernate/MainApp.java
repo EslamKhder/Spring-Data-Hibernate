@@ -20,26 +20,17 @@ public class MainApp {
 		
 		Session session = factory.getCurrentSession();
 		
-		// client one
-		Client client1 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
-		//client1.setId((long)1);
 		
-		// client one
-		Client client2 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
-		//client2.setId((long)2);
 		
-		// client one
-		Client client3 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
-		//client3.setId((long)3);
-		
+		long id = 3;
 		try {
 			session.beginTransaction();
 			
-			session.save(client1);
-			session.save(client2);
-			session.save(client3);
+			Client client = session.get(Client.class, id);
 			
 			session.getTransaction().commit();
+			
+			System.out.println(client.getFullName() + " " + client.getAddress());
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.toString());
@@ -50,6 +41,20 @@ public class MainApp {
 	}
 
 }
+/*
+ * 
+ * // client one
+		Client client1 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
+		//client1.setId((long)1);
+		
+		// client one
+		Client client2 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
+		//client2.setId((long)2);
+		
+		// client one
+		Client client3 = new Client("Eslam Khder",20,"eslamKhder81@gmail,com");
+		//client3.setId((long)3);
+ * */
 /*String url = "jdbc:mysql://localhost:3306/employee?useSSL=false";
 String username = "eslam";
 String password = "eslam";

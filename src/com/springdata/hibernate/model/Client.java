@@ -25,7 +25,9 @@ public class Client {
 	@Column(name = "client_address")
 	private String address;
 	
-	
+	public Client() {
+		
+	}
 	
 	public Client(String fullName, int age, String address) {
 		super();
