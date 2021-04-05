@@ -22,7 +22,7 @@ public class MainApp {
 		
 		
 		
-		long id = 2;
+		long id = 1;
 		try {
 			session.beginTransaction();
 			/*
@@ -31,13 +31,16 @@ public class MainApp {
 			client.setFullName("Yasser");
 			client.setAge(19);
 			client.setAddress("alex");
-			*/
 			Client c = new Client("Karim",19,"cairo");
 			c.setId((long)1);
 			session.update(c);
+			*/
+			Client c = new Client();
+			c.setId(id);
+			session.delete(c);
 			session.getTransaction().commit();
 			
-			System.out.println(c.getFullName() + " " + c.getAddress());
+			//System.out.println(c.getFullName() + " " + c.getAddress());
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.toString());
