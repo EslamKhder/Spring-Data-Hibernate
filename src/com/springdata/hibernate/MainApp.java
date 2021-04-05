@@ -2,6 +2,7 @@ package com.springdata.hibernate;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,24 +22,23 @@ public class MainApp {
 		Session session = factory.getCurrentSession();
 		
 		
+		/*
+		 * start with    s%
+		 * end with      %s
+		 * any           %s%
+		 * 
+		 * */
 		
 		long id = 1;
 		try {
 			session.beginTransaction();
-			/*
-			Client client = session.get(Client.class, id);
-			
-			client.setFullName("Yasser");
-			client.setAge(19);
-			client.setAddress("alex");
-			Client c = new Client("Karim",19,"cairo");
-			c.setId((long)1);
-			session.update(c);
-			*/
-			Client c = new Client();
-			c.setId(id);
-			session.delete(c);
-			session.getTransaction().commit();
+			//List<Client> clients = 
+					session
+					.createQuery("delete from Client where fullName = 'kmal'")
+					.executeUpdate();
+			/*for(int i=0;i<clients.size();i++) {
+				System.out.println(clients.get(i).getFullName() + " " + clients.get(i).getAge());
+			}*/
 			
 			//System.out.println(c.getFullName() + " " + c.getAddress());
 		} catch (Exception e) {
@@ -79,4 +79,20 @@ try {
 	// TODO: handle exception
 	System.out.println(e.toString());
 }
+*/
+
+/*
+Client client = session.get(Client.class, id);
+
+client.setFullName("Yasser");
+client.setAge(19);
+client.setAddress("alex");
+Client c = new Client("Karim",19,"cairo");
+c.setId((long)1);
+session.update(c);
+
+Client c = new Client();
+c.setId(id);
+session.delete(c);
+session.getTransaction().commit();
 */
