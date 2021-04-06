@@ -12,6 +12,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.mysql.cj.jdbc.Driver;
@@ -26,38 +28,22 @@ public class MainApp {
 				.buildSessionFactory();
 		
 		Session session = factory.getCurrentSession();
-		
-		
-		
-		/*
-		 * start with    s%
-		 * end with      %s
-		 * any           %s%
-		 * 
-		 * */
+	
 		
 		int id = 1;
 		try {
 			session.beginTransaction();
-			
-			Long []ids = {(long)1,(long)4,(long) 5}; 
 			Criteria c = session.createCriteria(Client.class);
-			//c.setFirstResult(0);  //  0 1 2 3
-			//c.setMaxResults(3);
-			
-			//c.add(Restrictions.in("id", ids)); // 2 3 4   [1,4,5]
-			//c.add(Restrictions.isNotNull("address"));
-			//c.add(Restrictions.isEmpty("id"));
-			//c.add(Restrictions.eq("fullName", "yasser"));
-			//c.add(Restrictions.like("fullName", "m" ,MatchMode.ANYWHERE)); // Like s% Like %s  Like %s% 
-			Criterion c1 =  Restrictions.eq("address", "alex");
-			Criterion c2 =  Restrictions.eq("fullName", "solom");
-			LogicalExpression or = Restrictions.and(c1, c2);
-			c.add(or);
+			//c.setProjection(Projections.min("id"));
+			//c.setProjection(Projections.max("id"));
+			//c.setProjection(Projections.avg("id"));
+			//c.setProjection(Projections.count("address"));
+			c.setProjection(Projections.countDistinct("address"));
 			List<Client> clients = c.list();
-			for(int i=0;i<clients.size();i++) {
+			System.out.println("Min : " + clients.get(0));
+			/*for(int i=0;i<clients.size();i++) {
 				System.out.println(clients.get(i).getFullName() + " " + clients.get(i).getAge());
-			}
+			}*/
 			
 			//System.out.println(c.getFullName() + " " + c.getAddress());
 		} catch (Exception e) {
@@ -147,3 +133,17 @@ q.setString("v2", "karim");
 			System.out.println("count : " + q5.list().get(0));
 			System.out.println("count : " + q6.list().get(0));
  * */
+/*
+//c.setFirstResult(0);  //  0 1 2 3
+//c.setMaxResults(3);
+
+//c.add(Restrictions.in("id", ids)); // 2 3 4   [1,4,5]
+//c.add(Restrictions.isNotNull("address"));
+//c.add(Restrictions.isEmpty("id"));
+//c.add(Restrictions.eq("fullName", "yasser"));
+//c.add(Restrictions.like("fullName", "m" ,MatchMode.ANYWHERE)); // Like s% Like %s  Like %s% 
+Criterion c1 =  Restrictions.eq("address", "alex");
+Criterion c2 =  Restrictions.eq("fullName", "solom");
+LogicalExpression or = Restrictions.and(c1, c2);
+c.add(or);
+*/
