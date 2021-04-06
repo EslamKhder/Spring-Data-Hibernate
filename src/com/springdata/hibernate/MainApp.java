@@ -40,6 +40,7 @@ public class MainApp {
 			
 			Data data = new Data();
 			data.setAge("20");
+			session.save(data);
 			
 			p.setData(data);
 			session.save(p);
