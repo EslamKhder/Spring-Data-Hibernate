@@ -45,25 +45,7 @@ public class MainApp {
 			
 			session.delete(res);
 			
-			/*Person p = new Person();
-			p.setName("Eslam Khder");
 			
-			Data data = new Data();
-			data.setAge("20");
-			session.save(data);
-			*/
-			/*
-			Person p = new Person();
-			p.setId(1);
-			
-			Person res = session.get(Person.class, p.getId());
-			
-			System.out.println("Name: " + res.getName());
-			System.out.println("Age: " + res.getData().getAge());
-			
-			res.setName("Karim");
-			res.getData().setAge("50");
-			*/
 			session.getTransaction().commit();
 			
 		} catch (Exception e) {
@@ -180,3 +162,22 @@ System.out.println("Min : " + clients.get(0));
 }*/
 
 //System.out.println(c.getFullName() + " " + c.getAddress());
+/*Person p = new Person();
+p.setName("Eslam Khder");
+
+Data data = new Data();
+data.setAge("20");
+session.save(data);
+*/
+/*
+Person p = new Person();
+p.setId(1);
+
+Person res = session.get(Person.class, p.getId());
+
+System.out.println("Name: " + res.getName());
+System.out.println("Age: " + res.getData().getAge());
+
+res.setName("Karim");
+res.getData().setAge("50");
+*/
