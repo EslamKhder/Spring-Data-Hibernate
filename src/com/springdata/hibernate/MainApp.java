@@ -35,15 +35,24 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
-			Person p = new Person();
+			/*Person p = new Person();
 			p.setName("Eslam Khder");
 			
 			Data data = new Data();
 			data.setAge("20");
 			session.save(data);
+			*/
 			
-			p.setData(data);
-			session.save(p);
+			Person p = new Person();
+			p.setId(1);
+			
+			/*Person res = session.get(Person.class, p.getId());
+			
+			System.out.println("Name: " + res.getName());
+			System.out.println("Age: " + res.getData().getAge());
+			*/
+			Integer id = 1;
+			session.delete(id);
 			
 			session.getTransaction().commit();
 			
