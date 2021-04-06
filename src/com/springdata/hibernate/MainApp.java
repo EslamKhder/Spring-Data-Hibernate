@@ -51,8 +51,8 @@ public class MainApp {
 			System.out.println("Name: " + res.getName());
 			System.out.println("Age: " + res.getData().getAge());
 			
-			session.delete(res);
-			
+			res.setName("Karim");
+			res.getData().setAge("50");
 			session.getTransaction().commit();
 			
 		} catch (Exception e) {
