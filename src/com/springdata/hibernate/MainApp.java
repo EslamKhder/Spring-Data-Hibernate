@@ -46,13 +46,12 @@ public class MainApp {
 			Person p = new Person();
 			p.setId(1);
 			
-			/*Person res = session.get(Person.class, p.getId());
+			Person res = session.get(Person.class, p.getId());
 			
 			System.out.println("Name: " + res.getName());
 			System.out.println("Age: " + res.getData().getAge());
-			*/
-			Integer id = 1;
-			session.delete(id);
+			
+			session.delete(res);
 			
 			session.getTransaction().commit();
 			
