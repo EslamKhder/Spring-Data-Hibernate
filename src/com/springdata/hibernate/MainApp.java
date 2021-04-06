@@ -18,34 +18,24 @@ import org.hibernate.criterion.Restrictions;
 
 import com.mysql.cj.jdbc.Driver;
 import com.springdata.hibernate.model.Client;
+import com.springdata.hibernate.model.Data;
+import com.springdata.hibernate.model.Person;
 
 public class MainApp {
 
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")			
-				.addAnnotatedClass(Client.class)		
+				.addAnnotatedClass(Person.class)
+				.addAnnotatedClass(Data.class)
 				.buildSessionFactory();
 		
 		Session session = factory.getCurrentSession();
 	
-		
-		int id = 1;
 		try {
 			session.beginTransaction();
-			Criteria c = session.createCriteria(Client.class);
-			//c.setProjection(Projections.min("id"));
-			//c.setProjection(Projections.max("id"));
-			//c.setProjection(Projections.avg("id"));
-			//c.setProjection(Projections.count("address"));
-			c.setProjection(Projections.countDistinct("address"));
-			List<Client> clients = c.list();
-			System.out.println("Min : " + clients.get(0));
-			/*for(int i=0;i<clients.size();i++) {
-				System.out.println(clients.get(i).getFullName() + " " + clients.get(i).getAge());
-			}*/
 			
-			//System.out.println(c.getFullName() + " " + c.getAddress());
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.toString());
@@ -147,3 +137,16 @@ Criterion c2 =  Restrictions.eq("fullName", "solom");
 LogicalExpression or = Restrictions.and(c1, c2);
 c.add(or);
 */
+/*Criteria c = session.createCriteria(Client.class);
+//c.setProjection(Projections.min("id"));
+//c.setProjection(Projections.max("id"));
+//c.setProjection(Projections.avg("id"));
+//c.setProjection(Projections.count("address"));
+//c.setProjection(Projections.countDistinct("address"));
+List<Client> clients = c.list();
+System.out.println("Min : " + clients.get(0));
+/*for(int i=0;i<clients.size();i++) {
+	System.out.println(clients.get(i).getFullName() + " " + clients.get(i).getAge());
+}*/
+
+//System.out.println(c.getFullName() + " " + c.getAddress());
