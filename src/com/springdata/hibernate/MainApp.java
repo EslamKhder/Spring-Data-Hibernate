@@ -35,6 +35,16 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
+			Data d = new Data();
+			d.setId(1);
+			
+			Data res = session.get(Data.class,d.getId());
+			
+			System.out.println("Name: " + res.getAge());
+			System.out.println("Age: " + res.getPerson().getName());
+			
+			session.delete(res);
+			
 			/*Person p = new Person();
 			p.setName("Eslam Khder");
 			
@@ -42,7 +52,7 @@ public class MainApp {
 			data.setAge("20");
 			session.save(data);
 			*/
-			
+			/*
 			Person p = new Person();
 			p.setId(1);
 			
@@ -53,6 +63,7 @@ public class MainApp {
 			
 			res.setName("Karim");
 			res.getData().setAge("50");
+			*/
 			session.getTransaction().commit();
 			
 		} catch (Exception e) {
