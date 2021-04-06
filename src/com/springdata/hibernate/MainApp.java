@@ -35,6 +35,16 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
+			Person p = new Person();
+			p.setName("Eslam Khder");
+			
+			Data data = new Data();
+			data.setAge("20");
+			
+			p.setData(data);
+			session.save(p);
+			
+			session.getTransaction().commit();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

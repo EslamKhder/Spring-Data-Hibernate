@@ -22,13 +22,26 @@ public class Person {
 	@Column(name = "full_name")
 	private String name;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_data")
 	private Data data;
 	
 	public Person() {
 		
 	}
+	
+
+
+	public Data getData() {
+		return data;
+	}
+
+
+
+	public void setData(Data data) {
+		this.data = data;
+	}
+
 
 
 	public int getId() {
