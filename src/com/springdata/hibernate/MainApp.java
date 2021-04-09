@@ -19,15 +19,17 @@ import org.hibernate.criterion.Restrictions;
 import com.mysql.cj.jdbc.Driver;
 import com.springdata.hibernate.model.Client;
 import com.springdata.hibernate.model.Data;
+import com.springdata.hibernate.model.Info;
 import com.springdata.hibernate.model.Person;
+import com.springdata.hibernate.model.Student;
 
 public class MainApp {
 
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")			
-				.addAnnotatedClass(Person.class)
-				.addAnnotatedClass(Data.class)
+				.addAnnotatedClass(Student.class)
+				.addAnnotatedClass(Info.class)
 				.buildSessionFactory();
 		
 		Session session = factory.getCurrentSession();
