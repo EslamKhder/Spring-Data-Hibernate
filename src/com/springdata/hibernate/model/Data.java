@@ -32,7 +32,7 @@ public class Data {
 	}
 	
 
-
+	
 	public Person getPerson() {
 		return person;
 	}

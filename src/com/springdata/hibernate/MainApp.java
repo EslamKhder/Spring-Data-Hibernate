@@ -35,15 +35,6 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
-			Data d = new Data();
-			d.setId(1);
-			
-			Data res = session.get(Data.class,d.getId());
-			
-			System.out.println("Name: " + res.getAge());
-			System.out.println("Age: " + res.getPerson().getName());
-			
-			session.delete(res);
 			
 			
 			session.getTransaction().commit();
@@ -181,3 +172,13 @@ System.out.println("Age: " + res.getData().getAge());
 res.setName("Karim");
 res.getData().setAge("50");
 */
+/*
+Data d = new Data();
+d.setId(1);
+
+Data res = session.get(Data.class,d.getId());
+
+System.out.println("Name: " + res.getAge());
+System.out.println("Age: " + res.getPerson().getName());
+*/
+//session.delete(res);
