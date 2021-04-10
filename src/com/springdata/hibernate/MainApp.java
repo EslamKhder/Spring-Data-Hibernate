@@ -39,13 +39,15 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
-			int id = 9;
+			int id = 10;
 			
 			Student student = new Student();
 			student = session.get(Student.class, id);
 			
 			
-			session.delete(student);
+			session.close();
+			System.out.println(student.getName());
+			System.out.println(student.getInfos().get(0).getPhone());
 			
 			
 			/*student.setName("Yaser");
@@ -75,6 +77,7 @@ public class MainApp {
 			info1.setStudent(student);
 			info2.setStudent(student);
 			
+			session.delete(student);
 			*/
 			//session.save(student);
 			
@@ -84,7 +87,7 @@ public class MainApp {
 			// TODO: handle exception
 			System.out.println(e.toString());
 		} finally {
-			session.close();
+			//session.close();
 		}
 		
 	}
