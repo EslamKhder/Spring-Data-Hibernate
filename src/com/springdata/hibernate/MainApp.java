@@ -2,7 +2,9 @@ package com.springdata.hibernate;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -37,7 +39,23 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
+			Student student = new Student();
+			student.setName("Eslam");
 			
+			Info info1 = new Info();
+			info1.setPhone("01113903660");
+			
+			Info info2 = new Info();
+			info2.setPhone("01002554887");
+			
+			student.getInfos().add(info1);
+			student.getInfos().add(info2);
+			
+			info1.setStudent(student);
+			info2.setStudent(student);
+			
+			
+			session.save(student);
 			
 			session.getTransaction().commit();
 			
