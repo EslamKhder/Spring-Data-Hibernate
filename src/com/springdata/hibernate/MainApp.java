@@ -38,12 +38,12 @@ public class MainApp {
 		
 		Session session = factory.getCurrentSession();
 	
-		int id = 1;
+		int id = 4;
 		try {
 			session.beginTransaction();
-			Car c = session.get(Car.class, id);
-			c.setName("Car new");
-			c.getColors().get(0).setName("Black");
+			Car c = session.get(Car.class, id);		
+			
+			session.delete(c);
 			
 			session.getTransaction().commit();
 			
