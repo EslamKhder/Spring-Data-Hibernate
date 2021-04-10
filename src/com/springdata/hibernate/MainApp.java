@@ -39,14 +39,25 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
+			int id = 8;
+			
 			Student student = new Student();
-			student.setName("Eslam");
+			student = session.get(Student.class, id);
+			
+			
+			System.out.println(student.getName());
+			
+			for(Info i : student.getInfos()) {
+				System.out.println(i.getPhone());
+			}
+			/*Student student = new Student();
+			student.setName("Ahmed");
 			
 			Info info1 = new Info();
-			info1.setPhone("01113903660");
+			info1.setPhone("01245889955");
 			
 			Info info2 = new Info();
-			info2.setPhone("01002554887");
+			info2.setPhone("01145898875");
 			
 			student.getInfos().add(info1);
 			student.getInfos().add(info2);
@@ -54,8 +65,8 @@ public class MainApp {
 			info1.setStudent(student);
 			info2.setStudent(student);
 			
-			
-			session.save(student);
+			*/
+			//session.save(student);
 			
 			session.getTransaction().commit();
 			
