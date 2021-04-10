@@ -38,16 +38,13 @@ public class MainApp {
 		
 		Session session = factory.getCurrentSession();
 	
-		int id = 2;
+		int id = 1;
 		try {
 			session.beginTransaction();
-			Color c = session.get(Color.class, id);
+			Car c = session.get(Car.class, id);
+			c.setName("Car new");
+			c.getColors().get(0).setName("Black");
 			
-			session.close();
-			System.out.println(c.getName());
-			for(Car cl : c.getCars()) {
-				System.out.println(cl.getName());
-			}
 			session.getTransaction().commit();
 			
 		} catch (Exception e) {
