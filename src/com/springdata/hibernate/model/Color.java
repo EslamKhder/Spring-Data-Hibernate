@@ -38,6 +38,13 @@ public class Color {
 		
 	}
 
+	
+	public Color(String name) {
+		super();
+		this.name = name;
+	}
+
+
 	public List<Car> getCars() {
 		return cars;
 	}

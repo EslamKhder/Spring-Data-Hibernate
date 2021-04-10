@@ -40,9 +40,29 @@ public class MainApp {
 	
 		try {
 			session.beginTransaction();
+			Car c1 = new Car("Car1");
+			Car c2 = new Car("Car2");
+			Car c3 = new Car("Car3");
+			////////////////////////////////////////
+			Color co1 = new Color("red");
+			Color co2 = new Color("blue");
+			Color co3 = new Color("yellow");
+			////////////////////////////////////////
+			co1.getCars().add(c1);
+			co1.getCars().add(c2);
+			co1.getCars().add(c3);
+			////////////////////////////////////////
+			co2.getCars().add(c1);
+			co2.getCars().add(c2);
+			co2.getCars().add(c3);
+			////////////////////////////////////////
+			co3.getCars().add(c1);
+			co3.getCars().add(c2);
+			co3.getCars().add(c3);
 			
-			
-			
+			session.save(co1);
+			session.save(co2);
+			session.save(co3);
 			session.getTransaction().commit();
 			
 		} catch (Exception e) {
