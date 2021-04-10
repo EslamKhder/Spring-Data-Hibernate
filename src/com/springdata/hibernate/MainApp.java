@@ -45,11 +45,18 @@ public class MainApp {
 			student = session.get(Student.class, id);
 			
 			
-			System.out.println(student.getName());
+			student.setName("Yaser");
+			
+			student.getInfos().get(0).setPhone("015");
+			student.getInfos().get(1).setPhone("012");
+			
+			session.update(student);
+			
+			/*System.out.println(student.getName());
 			
 			for(Info i : student.getInfos()) {
 				System.out.println(i.getPhone());
-			}
+			}*/
 			/*Student student = new Student();
 			student.setName("Ahmed");
 			
