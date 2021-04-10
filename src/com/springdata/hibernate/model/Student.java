@@ -26,7 +26,7 @@ public class Student {
 	@Column(name = "full_name")
 	private String name;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "student")
+	@OneToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},mappedBy = "student")
 	private List<Info> infos = new ArrayList();
 	
 	
@@ -34,16 +34,10 @@ public class Student {
 		
 	}
 
-
-
-
 	public List<Info> getInfos() {
 		return infos;
 	}
-
-
-
-
+	
 	public void setInfos(List<Info> infos) {
 		this.infos = infos;
 	}

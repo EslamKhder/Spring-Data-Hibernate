@@ -39,20 +39,23 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
-			int id = 8;
+			int id = 9;
 			
 			Student student = new Student();
 			student = session.get(Student.class, id);
 			
 			
-			student.setName("Yaser");
+			session.delete(student);
+			
+			
+			/*student.setName("Yaser");
 			
 			student.getInfos().get(0).setPhone("015");
 			student.getInfos().get(1).setPhone("012");
 			
 			session.update(student);
 			
-			/*System.out.println(student.getName());
+			System.out.println(student.getName());
 			
 			for(Info i : student.getInfos()) {
 				System.out.println(i.getPhone());
