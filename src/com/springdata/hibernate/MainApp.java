@@ -19,7 +19,9 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.mysql.cj.jdbc.Driver;
+import com.springdata.hibernate.model.Car;
 import com.springdata.hibernate.model.Client;
+import com.springdata.hibernate.model.Color;
 import com.springdata.hibernate.model.Data;
 import com.springdata.hibernate.model.Info;
 import com.springdata.hibernate.model.Person;
@@ -30,8 +32,8 @@ public class MainApp {
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")			
-				.addAnnotatedClass(Student.class)
-				.addAnnotatedClass(Info.class)
+				.addAnnotatedClass(Car.class)
+				.addAnnotatedClass(Color.class)
 				.buildSessionFactory();
 		
 		Session session = factory.getCurrentSession();
