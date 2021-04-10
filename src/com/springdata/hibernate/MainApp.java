@@ -39,47 +39,7 @@ public class MainApp {
 		try {
 			session.beginTransaction();
 			
-			int id = 10;
 			
-			Student student = new Student();
-			student = session.get(Student.class, id);
-			
-			
-			session.close();
-			System.out.println(student.getName());
-			System.out.println(student.getInfos().get(0).getPhone());
-			
-			
-			/*student.setName("Yaser");
-			
-			student.getInfos().get(0).setPhone("015");
-			student.getInfos().get(1).setPhone("012");
-			
-			session.update(student);
-			
-			System.out.println(student.getName());
-			
-			for(Info i : student.getInfos()) {
-				System.out.println(i.getPhone());
-			}*/
-			/*Student student = new Student();
-			student.setName("Ahmed");
-			
-			Info info1 = new Info();
-			info1.setPhone("01245889955");
-			
-			Info info2 = new Info();
-			info2.setPhone("01145898875");
-			
-			student.getInfos().add(info1);
-			student.getInfos().add(info2);
-			
-			info1.setStudent(student);
-			info2.setStudent(student);
-			
-			session.delete(student);
-			*/
-			//session.save(student);
 			
 			session.getTransaction().commit();
 			
@@ -226,3 +186,45 @@ System.out.println("Name: " + res.getAge());
 System.out.println("Age: " + res.getPerson().getName());
 */
 //session.delete(res);
+/*
+int id = 10;
+
+Student student = new Student();
+student = session.get(Student.class, id);
+
+
+session.close();
+System.out.println(student.getName());
+System.out.println(student.getInfos().get(0).getPhone());
+
+
+student.setName("Yaser");
+
+student.getInfos().get(0).setPhone("015");
+student.getInfos().get(1).setPhone("012");
+
+session.update(student);
+
+System.out.println(student.getName());
+
+for(Info i : student.getInfos()) {
+	System.out.println(i.getPhone());
+}*/
+/*Student student = new Student();
+student.setName("Ahmed");
+
+Info info1 = new Info();
+info1.setPhone("01245889955");
+
+Info info2 = new Info();
+info2.setPhone("01145898875");
+
+student.getInfos().add(info1);
+student.getInfos().add(info2);
+
+info1.setStudent(student);
+info2.setStudent(student);
+
+session.delete(student);
+*/
+//session.save(student);
